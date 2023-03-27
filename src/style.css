@@ -49,7 +49,7 @@ li{
 .weather-temperature .units{
     position: relative;
     font-size: 16px;
-    top: -32px;
+    top: 0;
 }
 .weather-temperature a{
     text-decoration: none;
