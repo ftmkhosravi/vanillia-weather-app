@@ -1,5 +1,5 @@
 let apiKey = "4aa4f4c485e2f9ad87e3fd6f892979f5";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=tehran&appid=${apiKey}&units=metric`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=sydney&appid=${apiKey}&units=metric`;
 
 function formatDate(timestamp){
     let date = new Date(timestamp);
@@ -25,12 +25,15 @@ function displayTemperature(response){
     let humidity = document.querySelector("#humidity");
     let wind = document.querySelector("#wind");
     let dateElement = document.querySelector("#date");
+    let icon = document.querySelector("#icon");
     temp.innerHTML = Math.round(response.data.main.temp);
     city.innerHTML = response.data.name;
     description.innerHTML = response.data.weather[0].description;
     humidity.innerHTML = Math.round(response.data.main.humidity);
     wind.innerHTML = Math.round(response.data.wind.speed);
     dateElement.innerHTML = formatDate(response.data.dt *1000);
+    icon.setAttribute("src" , `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    icon.setAttribute("alt" , `response.data.weather[0].description`);
     
     
 }
